@@ -1,25 +1,19 @@
-import { useSelector } from 'react-redux';
-import logo from './logo.svg';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './Routes';
+import HomePage from './pages/Home';
+import AuthPage from './pages/Auth';
 import './App.css';
+
+const routes = [
+  { path: '/', component: HomePage, exact: true },
+  { path: '/auth', component: AuthPage },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes routes={routes} />
+    </Router>
   );
 }
 
