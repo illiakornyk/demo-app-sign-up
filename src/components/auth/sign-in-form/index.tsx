@@ -1,6 +1,7 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
-import Input from '../TextField';
+import Input from '../../TextFields/TextField';
+import PasswordInput from '../../TextFields/PasswordField';
 
 interface SignInFormProps {
   title?: string;
@@ -10,27 +11,24 @@ interface SignInFormProps {
 const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
   return (
     <div>
-      <Typography variant="h1" sx={{ fontWeight: 700 }}>
+      <Typography variant="h1" sx={{ fontWeight: 700 }} color="white">
         SIGN IN
       </Typography>
 
-      <div>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         <Input
+          key="test"
           required
+          name="user-name"
           id="user-name"
+          type="text"
           label="User Name"
           defaultValue=""
           placeholder="Example123"
         />
 
-        <Input
-          required
-          id="password"
-          label="Password"
-          defaultValue=""
-          placeholder="******************"
-        />
-      </div>
+        <PasswordInput />
+      </Box>
     </div>
   );
 };
