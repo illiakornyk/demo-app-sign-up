@@ -8,7 +8,6 @@ function AuthPage() {
         bgcolor: 'hsla(217, 33%, 17%, 1)',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
         minHeight: '100vh',
       }}
@@ -21,16 +20,21 @@ function AuthPage() {
           border: '1px solid red',
         }}
       >
-        <Typography variant="h3" sx={{ fontWeight: 700 }} color="white">
-          InCode
-        </Typography>
-        <Typography
-          variant="h5"
-          sx={{ fontWeight: 600, color: 'hsla(91, 78%, 33%, 1)' }}
-        >
-          Finance
-        </Typography>
-
+        <Box>
+          <Typography variant="h3" sx={{ fontWeight: 700 }} color="white">
+            InCode
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 600,
+              color: 'hsla(91, 78%, 33%, 1)',
+              marginTop: '6px',
+            }}
+          >
+            Finance
+          </Typography>
+        </Box>
         <SignInForm />
       </Box>
     </Box>

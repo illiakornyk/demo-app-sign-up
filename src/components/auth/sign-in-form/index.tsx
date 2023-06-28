@@ -10,12 +10,23 @@ interface SignInFormProps {
 
 const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
   return (
-    <div>
-      <Typography variant="h1" sx={{ fontWeight: 700 }} color="white">
+    <>
+      <Typography
+        variant="h1"
+        sx={{ fontWeight: 700, marginTop: '4.5rem', fontSize: '3.5rem' }}
+        color="white"
+      >
         SIGN IN
       </Typography>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          marginTop: '3rem',
+        }}
+      >
         <Input
           key="test"
           required
@@ -28,7 +39,15 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
         />
 
         <PasswordInput />
+      </Box>
 
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          marginTop: '2rem',
+        }}
+      >
         <Button
           variant="contained"
           sx={{
@@ -57,6 +76,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
             letterSpacing: '0em',
             textAlign: 'center',
             color: 'hsla(120, 4%, 95%, 1)',
+            marginTop: '1.5rem',
           }}
         >
           Don’t have account yet?{' '}
@@ -71,7 +91,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
           </Link>
         </Typography>
       </Box>
-    </div>
+    </>
   );
 };
 
