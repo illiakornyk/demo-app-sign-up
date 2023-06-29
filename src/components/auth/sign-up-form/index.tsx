@@ -5,18 +5,20 @@ import PasswordInput from '../../TextFields/PasswordField';
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchemaSignIn } from '../../../validation/validationSchema';
+import { validationSchemaSignUp } from '../../../validation/validationSchema';
 
 interface SignInFormProps {
   title?: string;
   subtitle?: string;
 }
 interface InputTypes {
+  'full-name': string;
   'user-name': string;
   password: string;
+  'confirm-password': string;
 }
 
-const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
+const SignUpForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
   const {
     handleSubmit,
     register,
@@ -24,7 +26,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
     control,
     formState: { errors },
   } = useForm<InputTypes>({
-    resolver: yupResolver(validationSchemaSignIn),
+    resolver: yupResolver(validationSchemaSignUp),
   });
 
   const submitForm = (data: InputTypes) => {
@@ -38,7 +40,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
         sx={{ fontWeight: 700, marginTop: '4.5rem', fontSize: '3.5rem' }}
         color="white"
       >
-        SIGN IN
+        SIGN UP
       </Typography>
 
       <Box
@@ -49,6 +51,16 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
           marginTop: '3rem',
         }}
       >
+        <Input
+          control={control}
+          error={errors['full-name']}
+          required
+          name="full-name"
+          id="full-name"
+          type="text"
+          label="Full Name"
+          placeholder="Example Name"
+        />
         <Input
           control={control}
           error={errors['user-name']}
@@ -64,6 +76,12 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
           name="password"
           control={control}
           error={errors['password']}
+        />
+
+        <PasswordInput
+          name="confirm-password"
+          control={control}
+          error={errors['confirm-password']}
         />
       </Box>
 
@@ -91,7 +109,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
             },
           }}
         >
-          Sign In
+          Sign Up
         </Button>
 
         <Typography
@@ -106,15 +124,15 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
             marginTop: '1.5rem',
           }}
         >
-          Don’t have account yet?{' '}
+          I have an account.{' '}
           <Link
-            href="/sign-up"
+            href="/sign-in"
             sx={{
               color: 'hsla(217, 79%, 72%, 1)',
               textDecoration: 'none',
             }}
           >
-            New Account
+            Go to Sign in
           </Link>
         </Typography>
       </Box>
@@ -122,4 +140,4 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
