@@ -1,6 +1,7 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import SignInForm from '../../components/auth/sign-in-form';
 import SignUpForm from '../../components/auth/sign-up-form';
+import Header from '../../components/header';
 
 function AuthPage() {
   return (
@@ -21,21 +22,7 @@ function AuthPage() {
           border: '1px solid red',
         }}
       >
-        <Box>
-          <Typography variant="h3" sx={{ fontWeight: 700 }} color="white">
-            InCode
-          </Typography>
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 600,
-              color: 'hsla(91, 78%, 33%, 1)',
-              marginTop: '6px',
-            }}
-          >
-            Finance
-          </Typography>
-        </Box>
+        <Header title="InCode" subtitle="Finance" />
         {/* <SignUpForm /> */}
         <SignInForm />
       </Box>
