@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import { Container } from '@mui/system';
 import { CongratulationsIcon } from '../../components/icons/congratulations';
 import FormButton from '../../components/buttons/formButton';
+import peopleImage from '../../assets/pics/people.png';
 
 function HomePage() {
   return (
@@ -25,42 +26,60 @@ function HomePage() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '3rem',
           marginTop: '6.8rem',
         }}
       >
-        <Typography
-          variant="h2"
-          color="white"
+        <Box
           sx={{
-            textTransform: 'uppercase',
-            fontWeight: 700,
-            fontSize: '3rem',
-            position: 'relative',
+            textAlign: 'center',
+            display: 'flex',
+            alignItems: 'center',
+
+            flexDirection: 'column',
+            gap: '3rem',
           }}
         >
-          Congratulations
-          <Box
+          <Typography
+            variant="h2"
+            color="white"
             sx={{
-              position: 'absolute',
-              top: '-210%',
-              right: '-22%',
+              textTransform: 'uppercase',
+              fontWeight: 700,
+              fontSize: '3rem',
+              position: 'relative',
             }}
           >
-            <CongratulationsIcon />
-          </Box>
-        </Typography>
-        <Typography
-          color="white"
+            Congratulations
+            <Box
+              sx={{
+                position: 'absolute',
+                top: '-210%',
+                right: '-22%',
+              }}
+            >
+              <CongratulationsIcon />
+            </Box>
+          </Typography>
+          <Typography
+            color="white"
+            sx={{
+              fontWeight: 600,
+              fontSize: '1rem',
+            }}
+          >
+            Now you are on the main page. Soon we will provide you with detailed
+            feedback on the result of your work
+          </Typography>
+          <FormButton>Log Out</FormButton>
+        </Box>
+
+        <Box
           sx={{
-            fontWeight: 600,
-            fontSize: '1rem',
+            marginTop: '4.875rem',
           }}
         >
-          Now you are on the main page. Soon we will provide you with detailed
-          feedback on the result of your work
-        </Typography>
-        <FormButton>Log Out</FormButton>
+          <img alt="people" loading="lazy" src={peopleImage} />
+        </Box>
       </Container>
     </Box>
   );
