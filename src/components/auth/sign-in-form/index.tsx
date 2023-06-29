@@ -4,6 +4,9 @@ import Input from '../../TextFields/TextField';
 import PasswordInput from '../../TextFields/PasswordField';
 import { useForm } from 'react-hook-form';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import { validationSchema } from '../../../validation/validationSchema';
+
 interface SignInFormProps {
   title?: string;
   subtitle?: string;
@@ -20,7 +23,9 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
     reset,
     control,
     formState: { errors },
-  } = useForm<InputTypes>();
+  } = useForm<InputTypes>({
+    resolver: yupResolver(validationSchema),
+  });
 
   const submitForm = (data: InputTypes) => {
     console.log(data);
