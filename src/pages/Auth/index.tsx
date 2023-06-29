@@ -36,8 +36,8 @@ function AuthPage() {
             Finance
           </Typography>
         </Box>
-        <SignUpForm />
-        {/* <SignInForm /> */}
+        {/* <SignUpForm /> */}
+        <SignInForm />
       </Box>
     </Box>
   );

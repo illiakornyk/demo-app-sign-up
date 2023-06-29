@@ -5,6 +5,8 @@ import PasswordInput from '../../TextFields/PasswordField';
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+
 import { validationSchemaSignUp } from '../../../validation/validationSchema';
 
 interface SignInFormProps {
