@@ -1,19 +1,25 @@
 import { useState } from 'react';
-import Input from '../TextField';
+import Input, { ContolledFieldProps } from '../TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { EyeOffIcon } from '../../icons/hidden';
 
-const PasswordInput = () => {
+import { FieldValues } from 'react-hook-form';
+
+function PasswordField<T extends FieldValues>(props: ContolledFieldProps<T>) {
+  const { control, error, name } = props;
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <Input
+      name={name}
+      control={control}
+      error={error}
       id="password"
       label="Password"
-      defaultValue=""
       placeholder="******************"
       type={showPassword ? 'text' : 'password'}
       InputProps={{
@@ -30,6 +36,6 @@ const PasswordInput = () => {
       }}
     />
   );
-};
+}
 
-export default PasswordInput;
+export default PasswordField;

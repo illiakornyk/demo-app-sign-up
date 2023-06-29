@@ -2,15 +2,32 @@ import { Box, Typography, Button, Link } from '@mui/material';
 import React from 'react';
 import Input from '../../TextFields/TextField';
 import PasswordInput from '../../TextFields/PasswordField';
+import { useForm } from 'react-hook-form';
 
 interface SignInFormProps {
   title?: string;
   subtitle?: string;
 }
+interface InputTypes {
+  'user-name': string;
+  password: string;
+}
 
 const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
+  const {
+    handleSubmit,
+    register,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm<InputTypes>();
+
+  const submitForm = (data: InputTypes) => {
+    console.log(data);
+  };
+
   return (
-    <>
+    <Box component="form" onSubmit={handleSubmit(submitForm)}>
       <Typography
         variant="h1"
         sx={{ fontWeight: 700, marginTop: '4.5rem', fontSize: '3.5rem' }}
@@ -28,17 +45,21 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
         }}
       >
         <Input
-          key="test"
+          control={control}
+          error={errors['user-name']}
           required
           name="user-name"
           id="user-name"
           type="text"
           label="User Name"
-          defaultValue=""
           placeholder="Example123"
         />
 
-        <PasswordInput />
+        <PasswordInput
+          name="password"
+          control={control}
+          error={errors['password']}
+        />
       </Box>
 
       <Box
@@ -50,6 +71,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
       >
         <Button
           variant="contained"
+          type="submit"
           sx={{
             backgroundColor: 'hsla(91, 78%, 33%, 1)',
             boxShadow:
@@ -91,7 +113,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
           </Link>
         </Typography>
       </Box>
-    </>
+    </Box>
   );
 };
 
