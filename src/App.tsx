@@ -1,10 +1,12 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 
-import Routes from './Routes';
+import './App.module.scss';
+
 import HomePage from './pages/Home';
 import AuthPage from './pages/Auth';
-import './App.css';
+import Routes from './Routes';
+
 import { theme } from './myTheme';
 
 const routes = [

@@ -1,20 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-interface AuthState {
-  isAuthenticated: boolean;
-  loading: boolean;
-  error: string | null;
-  accessToken: string | null;
-  refreshToken: string | null;
-}
-
-const initialState: AuthState = {
-  isAuthenticated: false,
-  loading: false,
-  error: null,
-  accessToken: null,
-  refreshToken: null,
-};
+import { initialState } from '../../utils/type.utils';
 
 // simulate API call for login
 export const loginUser = createAsyncThunk(

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Input, { ContolledFieldProps } from '../TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
-import { EyeOffIcon } from '../../icons/hidden';
-
 import { FieldValues } from 'react-hook-form';
+
+import Input, { ContolledFieldProps } from '../TextField';
+import { EyeOffIcon } from '../../icons/hidden';
 
 function PasswordField<T extends FieldValues>(props: ContolledFieldProps<T>) {
   const { control, error, name } = props;

@@ -1,31 +1,32 @@
-import { Box, Typography, Button, Link } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import React from 'react';
-import Input from '../../TextFields/TextField';
-import PasswordInput from '../../TextFields/PasswordField';
-import { useForm } from 'react-hook-form';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchemaSignIn } from '../../../validation/validationSchema';
 import { useDispatch } from 'react-redux';
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import { validationSchemaSignIn } from '../validation/validationSchema';
 import { AppDispatch } from '../../../redux/store';
 import { loginUser } from '../../../redux/auth/authSlice';
 
-interface SignInFormProps {
-  title?: string;
-  subtitle?: string;
-}
+import PasswordInput from '../../TextFields/PasswordField';
+import FormButton from 'src/components/buttons/formButton';
+import Input from '../../TextFields/TextField';
+
 interface InputTypes {
   'user-name': string;
   password: string;
 }
 
-const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
+interface SignInFormProps {
+  onToggleForm: () => void;
+}
+
+const SignInForm: React.FC<SignInFormProps> = ({ onToggleForm }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const {
     handleSubmit,
-    register,
-    reset,
     control,
     formState: { errors },
   } = useForm<InputTypes>({
@@ -83,25 +84,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
           marginTop: '2rem',
         }}
       >
-        <Button
-          variant="contained"
-          type="submit"
-          sx={{
-            backgroundColor: 'hsla(91, 78%, 33%, 1)',
-            boxShadow:
-              '0px 1px 5px 0px hsla(0, 0%, 0%, 0.12), 0px 2px 2px 0px hsla(0, 0%, 0%, 0.14), 0px 3px 1px -2px hsla(0, 0%, 0%, 0.2)',
-            borderRadius: 0,
-            padding: '10px 16px',
-            textTransform: 'none',
-            fontSize: '16px',
-            fontWeight: '600',
-            '&:hover': {
-              backgroundColor: 'hsla(91, 78%, 33%, 0.8)',
-            },
-          }}
-        >
-          Sign In
-        </Button>
+        <FormButton type="submit">Sign In</FormButton>
 
         <Typography
           sx={{
@@ -116,15 +99,22 @@ const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
           }}
         >
           Don’t have account yet?{' '}
-          <Link
-            href="/sign-up"
+          <Button
+            onClick={onToggleForm}
             sx={{
               color: 'hsla(217, 79%, 72%, 1)',
               textDecoration: 'none',
+              backgroundColor: 'transparent',
+              border: 'none',
+              padding: 0,
+              textTransform: 'none',
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
             }}
           >
             New Account
-          </Link>
+          </Button>
         </Typography>
       </Box>
     </Box>
