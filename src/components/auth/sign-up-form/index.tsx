@@ -1,13 +1,14 @@
-import { Box, Typography, Button, Link } from '@mui/material';
 import React from 'react';
+
+import { Box, Typography, Button } from '@mui/material';
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { validationSchemaSignUp } from '../validation/validationSchema';
+
+import FormButton from 'src/components/buttons/formButton';
 import Input from '../../TextFields/TextField';
 import PasswordInput from '../../TextFields/PasswordField';
-import { useForm } from 'react-hook-form';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch } from 'react-redux';
-
-import { validationSchemaSignUp } from '../validation/validationSchema';
 
 interface InputTypes {
   'full-name': string;
@@ -23,8 +24,6 @@ interface SignUpFormProps {
 const SignUpForm: React.FC<SignUpFormProps> = ({ onToggleForm }) => {
   const {
     handleSubmit,
-    register,
-    reset,
     control,
     formState: { errors },
   } = useForm<InputTypes>({
@@ -94,25 +93,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onToggleForm }) => {
           marginTop: '2rem',
         }}
       >
-        <Button
-          variant="contained"
-          type="submit"
-          sx={{
-            backgroundColor: 'hsla(91, 78%, 33%, 1)',
-            boxShadow:
-              '0px 1px 5px 0px hsla(0, 0%, 0%, 0.12), 0px 2px 2px 0px hsla(0, 0%, 0%, 0.14), 0px 3px 1px -2px hsla(0, 0%, 0%, 0.2)',
-            borderRadius: 0,
-            padding: '10px 16px',
-            textTransform: 'none',
-            fontSize: '16px',
-            fontWeight: '600',
-            '&:hover': {
-              backgroundColor: 'hsla(91, 78%, 33%, 0.8)',
-            },
-          }}
-        >
-          Sign Up
-        </Button>
+        <FormButton type="submit">Sign Up</FormButton>
 
         <Typography
           sx={{

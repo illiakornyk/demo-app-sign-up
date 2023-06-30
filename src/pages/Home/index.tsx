@@ -1,8 +1,11 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
-import Header from '../../components/header';
 import { Container } from '@mui/system';
+import { Link } from 'react-router-dom';
+
+import styles from './styles.module.scss';
+
 import { CongratulationsIcon } from '../../components/icons/congratulations';
+import Header from '../../components/header';
 import FormButton from '../../components/buttons/formButton';
 import peopleImage from '../../assets/pics/people.png';
 
@@ -70,7 +73,11 @@ function HomePage() {
             Now you are on the main page. Soon we will provide you with detailed
             feedback on the result of your work
           </Typography>
-          <FormButton>Log Out</FormButton>
+          <FormButton>
+            <Link to="/auth" className={styles.link}>
+              Log out
+            </Link>
+          </FormButton>
         </Box>
 
         <Box
