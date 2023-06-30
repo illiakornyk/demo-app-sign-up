@@ -16,78 +16,83 @@ function HomePage() {
         bgcolor: 'hsla(217, 33%, 17%, 1)',
         display: 'flex',
         flexDirection: 'column',
-        padding: '3rem 3.75rem',
         minHeight: '100vh',
       }}
     >
-      <Header title="InCode" subtitle="Finance" />
-
-      <Container
-        maxWidth="sm"
+      <Box
         sx={{
-          textAlign: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          marginTop: '6.8rem',
+          padding: '3rem 3.75rem',
         }}
       >
-        <Box
+        <Header title="InCode" subtitle="Finance" />
+
+        <Container
+          maxWidth="sm"
           sx={{
             textAlign: 'center',
             display: 'flex',
-            alignItems: 'center',
-
             flexDirection: 'column',
-            gap: '3rem',
+            alignItems: 'center',
+            marginTop: '6.8rem',
           }}
         >
-          <Typography
-            variant="h2"
-            color="white"
+          <Box
             sx={{
-              textTransform: 'uppercase',
-              fontWeight: 700,
-              fontSize: '3rem',
-              position: 'relative',
+              textAlign: 'center',
+              display: 'flex',
+              alignItems: 'center',
+
+              flexDirection: 'column',
+              gap: '3rem',
             }}
           >
-            Congratulations
-            <Box
+            <Typography
+              variant="h2"
+              color="white"
               sx={{
-                position: 'absolute',
-                top: '-210%',
-                right: '-22%',
+                textTransform: 'uppercase',
+                fontWeight: 700,
+                fontSize: '3rem',
+                position: 'relative',
               }}
             >
-              <CongratulationsIcon />
-            </Box>
-          </Typography>
-          <Typography
-            color="white"
+              Congratulations
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: '-210%',
+                  right: '-22%',
+                }}
+              >
+                <CongratulationsIcon />
+              </Box>
+            </Typography>
+            <Typography
+              color="white"
+              sx={{
+                fontWeight: 600,
+                fontSize: '1rem',
+              }}
+            >
+              Now you are on the main page. Soon we will provide you with
+              detailed feedback on the result of your work
+            </Typography>
+            <FormButton>
+              <Link to="/auth" className={styles.link}>
+                Log out
+              </Link>
+            </FormButton>
+          </Box>
+
+          <Box
             sx={{
-              fontWeight: 600,
-              fontSize: '1rem',
+              marginTop: '4.875rem',
             }}
           >
-            Now you are on the main page. Soon we will provide you with detailed
-            feedback on the result of your work
-          </Typography>
-          <FormButton>
-            <Link to="/auth" className={styles.link}>
-              Log out
-            </Link>
-          </FormButton>
-        </Box>
-
-        <Box
-          sx={{
-            marginTop: '4.875rem',
-          }}
-        >
-          <img alt="people" loading="lazy" src={peopleImage} />
-        </Box>
-      </Container>
+            <img alt="people" loading="lazy" src={peopleImage} />
+          </Box>
+        </Container>
+      </Box>
     </Box>
   );
 }
