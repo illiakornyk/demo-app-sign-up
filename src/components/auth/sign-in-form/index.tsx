@@ -5,21 +5,17 @@ import PasswordInput from '../../TextFields/PasswordField';
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchemaSignIn } from '../../../validation/validationSchema';
+import { validationSchemaSignIn } from '../validation/validationSchema';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../redux/store';
 import { loginUser } from '../../../redux/auth/authSlice';
 
-interface SignInFormProps {
-  title?: string;
-  subtitle?: string;
-}
 interface InputTypes {
   'user-name': string;
   password: string;
 }
 
-const SignInForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
+const SignInForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const {

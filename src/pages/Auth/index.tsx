@@ -19,7 +19,6 @@ function AuthPage() {
           width: '425px',
           textAlign: 'left',
           padding: '47px',
-          border: '1px solid red',
         }}
       >
         <Header title="InCode" subtitle="Finance" />

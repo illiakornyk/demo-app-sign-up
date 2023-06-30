@@ -7,12 +7,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 
-import { validationSchemaSignUp } from '../../../validation/validationSchema';
+import { validationSchemaSignUp } from '../validation/validationSchema';
 
-interface SignInFormProps {
-  title?: string;
-  subtitle?: string;
-}
 interface InputTypes {
   'full-name': string;
   'user-name': string;
@@ -20,7 +16,7 @@ interface InputTypes {
   'confirm-password': string;
 }
 
-const SignUpForm: React.FC<SignInFormProps> = ({ title, subtitle }) => {
+const SignUpForm: React.FC = () => {
   const {
     handleSubmit,
     register,
