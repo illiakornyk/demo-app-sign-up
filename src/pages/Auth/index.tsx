@@ -2,8 +2,15 @@ import { Box } from '@mui/material';
 import SignInForm from '../../components/auth/sign-in-form';
 import SignUpForm from '../../components/auth/sign-up-form';
 import Header from '../../components/header';
+import { useState } from 'react';
 
 function AuthPage() {
+  const [showSignIn, setShowSignIn] = useState(false);
+
+  const handleToggleForm = () => {
+    setShowSignIn((prevShowSignIn) => !prevShowSignIn);
+  };
+
   return (
     <Box
       sx={{
@@ -22,8 +29,11 @@ function AuthPage() {
         }}
       >
         <Header title="InCode" subtitle="Finance" />
-        {/* <SignUpForm /> */}
-        <SignInForm />
+        {showSignIn ? (
+          <SignInForm onToggleForm={handleToggleForm} />
+        ) : (
+          <SignUpForm onToggleForm={handleToggleForm} />
+        )}
       </Box>
     </Box>
   );

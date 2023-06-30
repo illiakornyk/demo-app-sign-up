@@ -16,7 +16,11 @@ interface InputTypes {
   'confirm-password': string;
 }
 
-const SignUpForm: React.FC = () => {
+interface SignUpFormProps {
+  onToggleForm: () => void;
+}
+
+const SignUpForm: React.FC<SignUpFormProps> = ({ onToggleForm }) => {
   const {
     handleSubmit,
     register,
@@ -123,15 +127,22 @@ const SignUpForm: React.FC = () => {
           }}
         >
           I have an account.{' '}
-          <Link
-            href="/sign-in"
+          <Button
+            onClick={onToggleForm}
             sx={{
               color: 'hsla(217, 79%, 72%, 1)',
               textDecoration: 'none',
+              backgroundColor: 'transparent',
+              border: 'none',
+              padding: 0,
+              textTransform: 'none',
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
             }}
           >
             Go to Sign in
-          </Link>
+          </Button>
         </Typography>
       </Box>
     </Box>

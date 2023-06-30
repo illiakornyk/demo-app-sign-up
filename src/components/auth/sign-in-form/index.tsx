@@ -15,7 +15,11 @@ interface InputTypes {
   password: string;
 }
 
-const SignInForm: React.FC = () => {
+interface SignInFormProps {
+  onToggleForm: () => void;
+}
+
+const SignInForm: React.FC<SignInFormProps> = ({ onToggleForm }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const {
@@ -112,15 +116,22 @@ const SignInForm: React.FC = () => {
           }}
         >
           Don’t have account yet?{' '}
-          <Link
-            href="/sign-up"
+          <Button
+            onClick={onToggleForm}
             sx={{
               color: 'hsla(217, 79%, 72%, 1)',
               textDecoration: 'none',
+              backgroundColor: 'transparent',
+              border: 'none',
+              padding: 0,
+              textTransform: 'none',
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
             }}
           >
             New Account
-          </Link>
+          </Button>
         </Typography>
       </Box>
     </Box>
