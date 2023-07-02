@@ -5,13 +5,13 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { validationSchemaSignIn } from '../validation/validationSchema';
-import { AppDispatch } from '../../../redux/store';
-import { loginUser } from '../../../redux/auth/authSlice';
+import { AppDispatch } from 'redux/store';
+import { loginUser } from 'redux/auth/authSlice';
 
-import PasswordInput from '../../TextFields/PasswordField';
-import FormButton from 'src/components/buttons/formButton';
-import Input from '../../TextFields/TextField';
+import PasswordInput from 'components/TextFields/PasswordField';
+import Input from 'components/TextFields/TextField';
+import FormButton from 'components/buttons/formButton';
+import { validationSchemaSignIn } from '../validation/validationSchema';
 
 interface InputTypes {
   'user-name': string;

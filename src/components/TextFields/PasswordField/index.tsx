@@ -3,7 +3,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { FieldValues } from 'react-hook-form';
 
-import Input, { ContolledFieldProps } from '../TextField';
+import Input, { ContolledFieldProps } from 'components/TextFields/TextField';
 import { EyeOffIcon } from '../../icons/hidden';
 
 function PasswordField<T extends FieldValues>(props: ContolledFieldProps<T>) {

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 import styles from './styles.module.scss';
 
-import { CongratulationsIcon } from '../../components/icons/congratulations';
-import Header from '../../components/header';
-import FormButton from '../../components/buttons/formButton';
-import peopleImage from '../../assets/pics/people.png';
+import { CongratulationsIcon } from 'components/icons/congratulations';
+import Header from 'components/header';
+import FormButton from 'components/buttons/formButton';
+import peopleImage from 'assets/pics/people.png';
 
 function HomePage() {
   return (

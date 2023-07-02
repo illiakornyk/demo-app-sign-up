@@ -3,9 +3,9 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import './App.module.scss';
 
-import HomePage from './pages/Home';
-import AuthPage from './pages/Auth';
-import Routes from './Routes';
+import HomePage from 'pages/Home';
+import AuthPage from 'pages/Auth';
+import Routes from 'Routes';
 
 import { theme } from './myTheme';
 

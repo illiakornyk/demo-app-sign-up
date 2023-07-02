@@ -1,8 +1,10 @@
-import { Box } from '@mui/material';
-import SignInForm from '../../components/auth/sign-in-form';
-import SignUpForm from '../../components/auth/sign-up-form';
-import Header from '../../components/header';
 import { useState } from 'react';
+
+import { Box } from '@mui/material';
+
+import SignInForm from 'components/auth/sign-in-form';
+import SignUpForm from 'components/auth/sign-up-form';
+import Header from 'components/header';
 
 function AuthPage() {
   const [showSignIn, setShowSignIn] = useState(false);

@@ -4,11 +4,11 @@ import { Box, Typography, Button } from '@mui/material';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchemaSignUp } from '../validation/validationSchema';
 
-import FormButton from 'src/components/buttons/formButton';
-import Input from '../../TextFields/TextField';
-import PasswordInput from '../../TextFields/PasswordField';
+import Input from 'components/TextFields/TextField';
+import PasswordInput from 'components/TextFields/PasswordField';
+import FormButton from 'components/buttons/formButton';
+import { validationSchemaSignUp } from 'components/auth/validation/validationSchema';
 
 interface InputTypes {
   'full-name': string;
